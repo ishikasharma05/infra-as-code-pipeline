@@ -15,7 +15,7 @@ provider "aws" {
 
 # ---------- S3 bucket that will hold Terraform state ----------
 resource "aws_s3_bucket" "tf_state" {
-  bucket = "iac-pipeline-tfstate-ACCOUNT_ID_HERE"
+  bucket = "iac-pipeline-tfstate-662252246018"
 
   lifecycle {
     prevent_destroy = true
