@@ -13,3 +13,9 @@ variable "enable_nat_gateway" {
   description = "Whether to create a NAT gateway for this environment."
   type        = bool
 }
+
+variable "container_port" {
+  description = "Port the application container listens on."
+  type        = number
+  default     = 3000
+}
