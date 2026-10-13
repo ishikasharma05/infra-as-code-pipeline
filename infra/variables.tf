@@ -19,3 +19,9 @@ variable "container_port" {
   type        = number
   default     = 3000
 }
+
+variable "image_tag" {
+  description = "Image tag the initial task definition points to."
+  type        = string
+  default     = "v1"
+}
