@@ -4,8 +4,8 @@ variable "aws_region" {
   default     = "ap-south-1"
 }
 
-variable "github_repo" {
-  description = "GitHub repository allowed to deploy, in owner/name form."
+variable "github_subject_prefix" {
+  description = "Subject prefix GitHub puts in OIDC tokens for this repository (immutable form: owner@ownerId/repo@repoId)."
   type        = string
-  default     = "ishikasharma05/infra-as-code-pipeline"
+  default     = "repo:ishikasharma05@217627965/infra-as-code-pipeline@1414421859"
 }
