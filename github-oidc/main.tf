@@ -45,7 +45,7 @@ data "aws_iam_policy_document" "trust" {
     condition {
       test     = "StringEquals"
       variable = "token.actions.githubusercontent.com:sub"
-      values   = ["repo:${var.github_repo}:environment:${each.value}"]
+      values   = ["${var.github_subject_prefix}:environment:${each.value}"]
     }
   }
 }
@@ -79,7 +79,7 @@ data "aws_iam_policy_document" "permissions" {
 
   statement {
     sid       = "FindLoadBalancer"
-    actions   = ["elbv2:DescribeLoadBalancers"]
+    actions   = ["elasticloadbalancing:DescribeLoadBalancers"]
     resources = ["*"]
   }
 
