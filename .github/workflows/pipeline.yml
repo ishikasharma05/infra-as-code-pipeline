@@ -15,7 +15,7 @@ env:
 jobs:
   validate:
     name: Lint and validate
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
@@ -41,7 +41,7 @@ jobs:
 
   test:
     name: Unit tests
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: app
@@ -61,7 +61,7 @@ jobs:
     name: Build and push image
     needs: [validate, test]
     if: ${{ vars.DEPLOY_ENABLED == 'true' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: staging
     permissions:
       id-token: write
@@ -103,7 +103,7 @@ jobs:
   deploy-staging:
     name: Deploy to staging
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: staging
     concurrency:
       group: deploy-staging
@@ -129,7 +129,7 @@ jobs:
     name: Deploy to production
     needs: [build, deploy-staging]
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: production
     concurrency:
       group: deploy-production
