@@ -1,6 +1,9 @@
 
+*.tfplan
+*.tfstate
+*.tfstate.*
 *.tfstate.backup
+.terraform/
 crash.log
-
 node_modules/
 npm-debug.log
